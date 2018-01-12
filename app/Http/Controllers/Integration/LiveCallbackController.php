@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Utils\Tools;
 use Illuminate\Http\Request;
 use Log;
-use App\Http\Entity\TencentEvent\TencentEventIndex;
+use App\Http\Entity\LiveEvent\LiveEventIndex;
 
 class LiveCallbackController extends Controller
 {
@@ -27,7 +27,7 @@ class LiveCallbackController extends Controller
         Log::info($data);
         
         // 保存事件消息
-        TencentEventIndex::store($data);
+        LiveEventIndex::store($data);
     }
 
 }

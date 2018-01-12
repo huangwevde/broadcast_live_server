@@ -29,4 +29,15 @@ class ClientUser extends Base
         return self::where($where)->value('password');
     }
 
+    /**
+     * 根据username获取client_id
+     * @param array $where
+     * @param array $data
+     * @return bool
+     */
+    public static function getClientId($username)
+    {
+        return self::where('username', $username)->value('id');
+    }
+
 }

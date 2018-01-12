@@ -11,7 +11,7 @@ use App\Http\Entity\MixStream;
 class MixStreamController extends Controller
 {
 
-    protected $interface_name = 'mix_streamv2.start_mix_stream_advanced';
+    private $interface_name = 'mix_streamv2.start_mix_stream_advanced';
 
     public function index() 
     {

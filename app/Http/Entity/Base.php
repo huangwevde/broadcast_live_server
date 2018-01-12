@@ -54,9 +54,9 @@ class Base extends Model
         } else {
             $columns = static::getTableColumns();
         }
-        
+
         foreach ($data as $key => $value) {
-            if (!in_array($key, $columns)) {
+            if (!in_array($key, $columns) || is_null($value)) {
                 unset($data[$key]);
             }
         }
@@ -80,6 +80,19 @@ class Base extends Model
     public static function store($data)
     {
         $model = new static;
+        $model->attributes = self::getFilter($data);
+        $model->save();
+        return $model->id;
+    }
+
+    /**
+     * store
+     * @param array $data
+     * @return bool
+     */
+    public static function edit($id, $data)
+    {
+        $model = static::find($id);
         $model->attributes = self::getFilter($data);
         $model->save();
         return $model->id;

@@ -18,7 +18,7 @@ class TLSSigAPI {
     {
         $this->private_key = config('tencentIm.im_tls.private_key', '');
         $this->public_key = config('tencentIm.im_tls.public_key', '');
-        $this->appid = env('TX_IM_SDK_APPID');
+        $this->appid = config('tencentIm.im_tls.app_id', '1400057813');
     }
 
     /**

@@ -14,12 +14,12 @@ class Tools
     /**
     * 数组健值验证
     * @param array $arr
-    * @param array $volidate_key
+    * @param array $validate_key
     * @return bool
     */
-    public static function custom_volidate_array($arr, $volidate_arr)
+    public static function custom_validate_array($arr, $validate_arr)
     {
-        foreach ($volidate_arr as $val) {
+        foreach ($validate_arr as $val) {
             if (!array_key_exists($val, $arr)) {
                 return false;
             }
@@ -41,9 +41,8 @@ class Tools
      * @param $len
      * @return string
      */
-    public static function genRandString($len)
+    public static function genRandString($len, $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
     {
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $str ='';
         for ( $i = 0; $i < $len; $i++ ) {
             $str .= $chars[mt_rand(0, strlen($chars) - 1)];

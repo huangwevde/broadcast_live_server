@@ -19,12 +19,12 @@ class IndexController extends Controller
     public function getSig(Request $request) 
     {
         $data = $request->all();
-        if (!Tools::custom_volidate_array($data, ['identifier'])) {
-            return false;
+        if (!Tools::custom_validate_array($data, ['identifier'])) {
+            return $this->apiError('参数错误');
         }
         $tlsApi = new TLSSigAPI();
         $sig = $tlsApi->genSig($data['identifier']);
-        dd($sig);
+        return $this->api($sig);
     }
 
 }

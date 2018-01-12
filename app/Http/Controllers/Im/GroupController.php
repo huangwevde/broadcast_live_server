@@ -151,7 +151,7 @@ class GroupController extends Controller
                 $ext_str = "?" . http_build_query(array(
                     "usersig" => $sig,
                     "identifier" => 'admin',
-                    "sdkappid" => env('TX_IM_SDK_APPID'),
+                    "sdkappid" => config('tencentIm.im_tls.app_id', '1400057813'),
                     "random" => str_random(8),
                     'contenttype' => 'json',
                 ));

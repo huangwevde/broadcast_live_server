@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-// Route::get('imdemo', function () {
-//     return view('demo.index');
-// });
-
-Route::get('test', 'TestController@index');
+Route::group(
+    [
+        'middleware' => ['auth.webcast'],
+        'prefix' => 'webcast',
+    ],
+    function () {
+        Route::any('live/index', 'Integration\LiveController@index');
+    }
+);
